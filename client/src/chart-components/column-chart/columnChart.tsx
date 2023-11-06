@@ -20,7 +20,7 @@ ChartJS.register(
 const ColumnChart = ({ startDate, endDate }: DateRange) => {
 
     const [countryCodes, setcountryCodes] = useState<string[]>([]);
-    const [freq, setFreq] = useState<number[]>([]);
+    const [numberOfVisitors, setNumberOfVisitors] = useState<number[]>([]);
     const [errorMessage, setErrorMessage] = useState<string>();
 
     useEffect(() => {
@@ -37,7 +37,7 @@ const ColumnChart = ({ startDate, endDate }: DateRange) => {
                 const values: number[] = Object.values(response.data);
                 setErrorMessage('');
                 setcountryCodes(codes);
-                setFreq(values);
+                setNumberOfVisitors(values);
 
             }
             catch (err) {
@@ -78,7 +78,7 @@ const ColumnChart = ({ startDate, endDate }: DateRange) => {
                             datasets: [
                                 {
                                     label: 'Number of Visitors Per Country',
-                                    data: freq,
+                                    data: numberOfVisitors,
                                     backgroundColor: 'black',
                                     borderWidth: 1,
                                 },
